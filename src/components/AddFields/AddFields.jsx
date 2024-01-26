@@ -15,7 +15,7 @@ const AddFields = () => {
   const [maxLength, setMaxLengthAllowed] = useState('');
   const [isMandatory, setIsMandatory] = useState(false);
   const [fieldData, setFieldData] = useState('');
-  const [showDisplay, setShowDisplay] = useState(false);
+  const [displayFields, setDisplayFields] = useState(false);
 
   const handleAddField = (e) => {
     e.preventDefault();
@@ -29,6 +29,7 @@ const AddFields = () => {
       isMandatory,
       fieldData,
     };
+    setDisplayFields(true);
     dispatch(addField(field));
 
     // Resetting the form after adding the fields
@@ -38,10 +39,6 @@ const AddFields = () => {
     setMaxLengthAllowed('');
     setIsMandatory(false);
     setFieldData('');
-  };
-
-  const handleConfirm = () => {
-    setShowDisplay(true);
   };
 
   return (
@@ -151,6 +148,30 @@ const AddFields = () => {
                       <option value="date">Date</option>
                     </select>
                   </label>
+                  {fieldDataType === 'number' && (
+                    <>
+                      <label>
+                        Max Length Allowed:
+                        <input
+                          type="text"
+                          value={maxLength}
+                          onChange={(e) => setMaxLengthAllowed(e.target.value)}
+                        />
+                      </label>
+                      <label>
+                        Is Mandatory:
+                        <select
+                          value={isMandatory}
+                          onChange={(e) =>
+                            setIsMandatory(e.target.value === 'true')
+                          }
+                        >
+                          <option value="false">No</option>
+                          <option value="true">Yes</option>
+                        </select>
+                      </label>
+                    </>
+                  )}
                   <div>
                     <label htmlFor="">Date Range Validation</label>
                     <label htmlFor="fieldDateMinRange">Min Date</label>
@@ -216,6 +237,30 @@ const AddFields = () => {
                       <option value="date">Date</option>
                     </select>
                   </label>
+                  {fieldDataType === 'number' && (
+                    <>
+                      <label>
+                        Max Length Allowed:
+                        <input
+                          type="text"
+                          value={maxLength}
+                          onChange={(e) => setMaxLengthAllowed(e.target.value)}
+                        />
+                      </label>
+                      <label>
+                        Is Mandatory:
+                        <select
+                          value={isMandatory}
+                          onChange={(e) =>
+                            setIsMandatory(e.target.value === 'true')
+                          }
+                        >
+                          <option value="false">No</option>
+                          <option value="true">Yes</option>
+                        </select>
+                      </label>
+                    </>
+                  )}
                   <label>
                     Field Data:
                     <input
@@ -230,14 +275,11 @@ const AddFields = () => {
             }
             <div className='btn-group'>
               <button onClick={handleAddField}>Add Field</button>
-              <button type="button" onClick={handleConfirm}>
-                Confirm
-              </button>
             </div>
           </>
         )}
       </form>
-      {showDisplay && <DisplayFields />}
+      {displayFields && <DisplayFields />}
     </div>
   );
 };

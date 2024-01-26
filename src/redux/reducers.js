@@ -2,7 +2,7 @@ const initialState = {
     fields: [],
   };
   
-  const rootReducer = (state = initialState, action) => {
+  const mainReducer = (state = initialState, action) => {
     switch (action.type) {
       case 'ADD_FIELD':
         return {
@@ -14,5 +14,5 @@ const initialState = {
     }
   };
   
-  export default rootReducer;
+  export default mainReducer;
   

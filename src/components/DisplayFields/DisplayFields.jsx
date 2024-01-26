@@ -15,6 +15,8 @@ const DisplayFields = () => {
     return acc;
   }, {});
 
+  console.log(categorizedFields);
+
   return (
     <div className='added-fields-container'>
       <h2>Added Fields:</h2>
