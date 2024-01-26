@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addField } from '../../redux/actions';
-import DisplayFields from '../DisplayFields';
+import DisplayFields from '../DisplayFields/DisplayFields';
 import "./AddFields.css";
 
 const AddFields = () => {
@@ -193,17 +193,41 @@ const AddFields = () => {
                 </>
               )
             }
-            {/* {
-              selectedFieldType === "Dropdown"
-                ? <div>
-                  <label htmlFor="fieldDataDropdown">Field Data</label>
-                  <input type="text" className="fieldDataDropdown" id="fieldDataDropdown" name="fieldDataDropdown" placeholder="Enter space separated: e.g. 'CSE IT ECE EEE MECH'" />
-                </div>
-                : <div>
-                  <label htmlFor="fieldData">Field Data</label>
-                  <input type="text" className="fieldData" />
-                </div>
-            } */}
+            {
+              selectedFieldType === "DropDown" && (
+                <>
+                  <label>
+                    Field Display Name:
+                    <input
+                      type="text"
+                      value={fieldDisplayName}
+                      onChange={(e) => setFieldDisplayName(e.target.value)}
+                    />
+                  </label>
+                  <label>
+                    Select Field Data Type:
+                    <select
+                      value={fieldDataType}
+                      onChange={(e) => setFieldDataType(e.target.value)}
+                    >
+                      <option value="">Select Data Type</option>
+                      <option value="number">Number</option>
+                      <option value="string">String</option>
+                      <option value="date">Date</option>
+                    </select>
+                  </label>
+                  <label>
+                    Field Data:
+                    <input
+                      type="text"
+                      placeholder='Enter values separated by space'
+                      value={fieldData}
+                      onChange={(e) => setFieldData(e.target.value)}
+                    />
+                  </label>
+                </>
+              )
+            }
             <div className='btn-group'>
               <button onClick={handleAddField}>Add Field</button>
               <button type="button" onClick={handleConfirm}>
