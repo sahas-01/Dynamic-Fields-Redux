@@ -1,6 +1,9 @@
-## Farmwise AI Frontend Assessment
+## Requirements
 
-This is my submission for the frontend assessment of FarmWise AI using ReactJS and Redux.
+- [x] Create a web applicaton using ReactJS and Redux.
+- [x] Single web page for adding fields and displaying the added fields dynamically.
+- [x] Page will have one drop down with values ”Student”, “Self-Employee” and “Business”
+- [x] Upon selection in the dropdown, the user needs to define the input fields and data to be collected with validatons.
 
 ### Steps to run
 
