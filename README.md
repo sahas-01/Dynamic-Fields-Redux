@@ -9,7 +9,7 @@
 
 First, clone the repository:
 ```bash
-git clone https://github.com/sahas-01/farmwise-ai.git
+git clone https://github.com/sahas-01/Dynamic-Fields-Redux.git
 cd farmwise-ai
 ```
 
